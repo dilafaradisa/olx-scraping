@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Env variables
+.env
+
+# Data outputs
+data/raw/
+data/parsed/
+data/transformed/
+data/inserted/
+
+# Playwright cache
+playwright/.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
