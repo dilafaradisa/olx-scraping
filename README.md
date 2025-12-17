@@ -18,9 +18,9 @@ pip install -r requirements.txt
 `
 ### Create your .env
 create a .env file in the project root to store all credential informations
-`
+```bash
 touch .env
-`
+```
 here is the example:
 ```bash
 # --- PostgreSQL Settings ---
@@ -43,9 +43,9 @@ INSERTED_PATH=[your_inserted_json_path]
 
 ### Set up the database
 start the docker-compose
-`
+```bash
 docker-compose up -d
-`
+```
 to create the table based on dwh-schema.sql, first access the container, then log in to postgresql inside the container
 ```bash
 docker exec -it your_container_name bash
