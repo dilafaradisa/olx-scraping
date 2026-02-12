@@ -48,10 +48,7 @@ docker-compose up -d
 ```
 to create the table based on dwh-schema.sql, first access the container, then log in to postgresql inside the container
 ```bash
-docker exec -it your_container_name bash
-
-# inside the container
-psql -d scrape_olx -U olx_user -h localhost -p 5433 -f dwh-schema.sql
+docker exec -i your_container_name psql -U your_db_user -d your_db_name < dwh-schema.sql
 ```
 ### Run the pipeline
 `
