@@ -46,13 +46,10 @@ start the docker-compose
 ```bash
 docker-compose up -d
 ```
-to create the table based on dwh-schema.sql, first access the container, then log in to postgresql inside the container
-```bash
-docker exec -i your_container_name psql -U your_db_user -d your_db_name < dwh-schema.sql
-```
+
 ### Run the pipeline
 `
-python scraps.py
+python main_etl.py
 `
 ## Author
 Adila Zahra Faradisa
