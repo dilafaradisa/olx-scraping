@@ -48,9 +48,9 @@ docker-compose up -d
 ```
 
 ### Run the pipeline
-`
+```
 python main_etl.py
-`
+```
 ## Author
 Adila Zahra Faradisa
 
