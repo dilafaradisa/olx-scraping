@@ -33,7 +33,7 @@ POSTGRES_PORT=5433
 DB_URL=postgresql://your_username:your_password@localhost:5433/your_db_name
 POSTGRES_TABLE=your_table_name
 
-# --- Scraper Settings ---
+# --- Scraper Settings ---okay
 KEYWORD="your keyword here"
 HTML_PATH=[your_html_path]
 PARSED_PATH=[your_parsed_csv_path]

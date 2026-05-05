@@ -4,10 +4,13 @@ import os
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 import csv
+import logging
 
 load_dotenv()
 
 DOMAIN = os.getenv("DOMAIN")
+DIR_TEMP_LOG = os.getenv("DIR_TEMP_LOG")
+
 def extract_year_mileage(data):
     if pd.isna(data) or data == "Data tidak ditemukan":
         return None, None, None
@@ -58,6 +61,11 @@ def transform_posted_time(value):
 
 def transform_data(parsed_data, detail_listing_path,transformed_path):
     '''this function transforms parsed data based on given requirements'''
+
+    logging.basicConfig(level = logging.INFO,
+                        filename=f'{DIR_TEMP_LOG}/logs.log',
+                        format='%(asctime)s - %(levelname)s - %(message)s')
+    
     os.makedirs(os.path.dirname(transformed_path), exist_ok=True)
 
     df = pd.read_csv(parsed_data)
@@ -93,4 +101,4 @@ def transform_data(parsed_data, detail_listing_path,transformed_path):
 
     df_merged.to_csv(transformed_path, index=False, quoting=csv.QUOTE_ALL)
 
-    print(f"Transformed data saved to {transformed_path}")
+    logging.info(f"Transformed data saved to {transformed_path}")

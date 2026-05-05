@@ -1,0 +1,202 @@
+2026-05-05 12:04:15,764 - INFO - Successfully loaded page: https://www.olx.co.id/mobil-bekas_c198/q-wuling-air-ev
+2026-05-05 12:04:21,184 - INFO - Typing location: Indonesia
+2026-05-05 12:04:23,556 - INFO - Typed Indonesia as a filter
+2026-05-05 12:05:04,633 - INFO - Processing listing: https://www.olx.co.id/item/wuling-air-ev-pro-long-range-300km-hijau-mulus-iid-942047055
+2026-05-05 12:05:06,437 - INFO - Variant found for 4538604256: Long Range Listrik-AT
+2026-05-05 12:05:06,533 - INFO - Seller type found for 4538604256: Diler
+2026-05-05 12:05:08,267 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 12:05:11,836 - INFO - Description extracted for 4538604256
+2026-05-05 12:05:12,864 - INFO - Data collected for 4538604256
+2026-05-05 12:05:16,535 - INFO - Processing listing: https://www.olx.co.id/item/dijual-wuling-air-ev-long-range-at-2022-termurah-iid-945049259
+2026-05-05 12:05:19,572 - INFO - Variant found for 4539513136: Long Range Listrik-AT
+2026-05-05 12:05:19,975 - INFO - Seller type found for 4539513136: Individu
+2026-05-05 12:05:22,233 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 12:05:26,263 - INFO - Description extracted for 4539513136
+2026-05-05 12:05:27,429 - INFO - Data collected for 4539513136
+2026-05-05 12:05:32,056 - INFO - Processing listing: https://www.olx.co.id/item/wuling-air-ev-standard-range-2022-iid-944938106
+2026-05-05 12:05:37,783 - INFO - Variant found for 4539098672: Standard Range Listrik-AT
+2026-05-05 12:05:38,008 - INFO - Seller type found for 4539098672: --
+2026-05-05 12:05:40,299 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 12:05:43,924 - INFO - Description extracted for 4539098672
+2026-05-05 12:05:44,950 - INFO - Data collected for 4539098672
+2026-05-05 12:05:45,105 - INFO - Detailed listing info saved to data/raw/scraped_detailed_listing_data.csv
+2026-05-05 12:05:45,217 - INFO - HTML content saved to data/raw/scraped_data.html
+2026-05-05 12:05:46,323 - INFO - [pid 37439] Worker Worker(salt=933411802, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=37439) done      ExtractData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv)
+2026-05-05 12:05:46,326 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 12:05:46,332 - INFO - Informed scheduler that task   ExtractData_data_raw_scraped_data_raw_scraped_wuling_air_ev_e4f1eb366d   has status   DONE
+2026-05-05 12:05:46,332 - DEBUG - Asking scheduler for work...
+2026-05-05 12:05:46,333 - DEBUG - Pending tasks: 3
+2026-05-05 12:05:46,334 - INFO - [pid 37439] Worker Worker(salt=933411802, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=37439) running   ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+2026-05-05 12:05:46,532 - INFO - Parsed data saved to data/parsed/parsed_data.csv
+2026-05-05 12:05:46,532 - INFO - [pid 37439] Worker Worker(salt=933411802, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=37439) done      ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+2026-05-05 12:05:46,532 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 12:05:46,533 - INFO - Informed scheduler that task   ParseData_data_raw_scraped_data_raw_scraped_wuling_air_ev_7b15c0f68e   has status   DONE
+2026-05-05 12:05:46,533 - DEBUG - Asking scheduler for work...
+2026-05-05 12:05:46,533 - DEBUG - Pending tasks: 2
+2026-05-05 12:05:46,533 - INFO - [pid 37439] Worker Worker(salt=933411802, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=37439) running   TransformData(detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv, html_path=data/raw/scraped_data.html, transform_data_path=data/transformed/transformed_data.csv)
+2026-05-05 12:05:46,626 - INFO - Transformed data saved to data/transformed/transformed_data.csv
+2026-05-05 12:05:46,627 - INFO - [pid 37439] Worker Worker(salt=933411802, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=37439) done      TransformData(detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv, html_path=data/raw/scraped_data.html, transform_data_path=data/transformed/transformed_data.csv)
+2026-05-05 12:05:46,627 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 12:05:46,627 - INFO - Informed scheduler that task   TransformData_data_raw_scraped_data_raw_scraped_data_parsed_pars_2fcbe9c413   has status   DONE
+2026-05-05 12:05:46,627 - DEBUG - Asking scheduler for work...
+2026-05-05 12:05:46,627 - DEBUG - Pending tasks: 1
+2026-05-05 12:05:46,627 - INFO - [pid 37439] Worker Worker(salt=933411802, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=37439) running   LoadData(html_path=data/raw/scraped_data.html, parsed_path=data/parsed/parsed_data.csv, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, transformed_data_path=data/transformed/transformed_data.csv, table_name=scrape_data, db_url=postgresql://olx_user:olx_pass@localhost:5432/scrape_olx, load_query_path=pipeline/query/upsert_final_schema.sql)
+2026-05-05 12:05:46,627 - INFO - using table name: scrape_data at postgresql://olx_user:olx_pass@localhost:5432/scrape_olx
+2026-05-05 12:05:47,211 - INFO - Data loaded into scrape_data successfully.
+2026-05-05 12:05:47,269 - INFO - Data loaded into final schema successfully.
+2026-05-05 12:05:47,270 - INFO - [pid 37439] Worker Worker(salt=933411802, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=37439) done      LoadData(html_path=data/raw/scraped_data.html, parsed_path=data/parsed/parsed_data.csv, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, transformed_data_path=data/transformed/transformed_data.csv, table_name=scrape_data, db_url=postgresql://olx_user:olx_pass@localhost:5432/scrape_olx, load_query_path=pipeline/query/upsert_final_schema.sql)
+2026-05-05 12:05:47,270 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 12:05:47,271 - INFO - Informed scheduler that task   LoadData_postgresql___olx_data_raw_scraped_data_raw_scraped_89101dd92d   has status   DONE
+2026-05-05 12:05:47,271 - DEBUG - Asking scheduler for work...
+2026-05-05 12:05:47,272 - DEBUG - Done
+2026-05-05 12:05:47,272 - DEBUG - There are no more tasks to run at this time
+2026-05-05 12:05:47,272 - INFO - Worker Worker(salt=933411802, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=37439) was stopped. Shutting down Keep-Alive thread
+2026-05-05 12:05:47,276 - INFO - 
+===== Luigi Execution Summary =====
+
+Scheduled 4 tasks of which:
+* 4 ran successfully:
+    - 1 ExtractData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv)
+    - 1 LoadData(...)
+    - 1 ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+    - 1 TransformData(...)
+
+This progress looks :) because there were no failed tasks or missing dependencies
+
+===== Luigi Execution Summary =====
+
+2026-05-05 12:14:19,323 - INFO - Successfully loaded page: https://www.olx.co.id/mobil-bekas_c198/q-wuling-air-ev
+2026-05-05 12:14:26,406 - INFO - Typing location: Indonesia
+2026-05-05 12:14:29,402 - INFO - Typed Indonesia as a filter
+2026-05-05 12:14:36,422 - ERROR - Location selection failed, proceeding without setting location filter.
+2026-05-05 12:14:55,404 - INFO - Processing listing: https://www.olx.co.id/item/wuling-air-ev-2024-listrik-iid-945011007
+2026-05-05 12:14:57,193 - INFO - Variant found for 4541496112: Lite Standard Range Listrik-AT
+2026-05-05 12:15:27,202 - INFO - Seller type not found for 4541496112: Timeout 30000ms exceeded., setting as 'not found'
+2026-05-05 12:15:28,812 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 12:15:32,434 - INFO - Description extracted for 4541496112
+2026-05-05 12:15:33,470 - INFO - Data collected for 4541496112
+2026-05-05 12:15:35,411 - INFO - Processing listing: https://www.olx.co.id/item/odo-19000-antikkk-pajak-102026-wuling-air-ev-long-range-ev-2022-iid-944949514
+2026-05-05 12:15:37,144 - INFO - Variant found for 4542618640: Long Range Listrik-AT
+2026-05-05 12:15:37,153 - INFO - Seller type found for 4542618640: Diler
+2026-05-05 12:15:38,724 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 12:15:42,288 - INFO - Description extracted for 4542618640
+2026-05-05 12:15:43,307 - INFO - Data collected for 4542618640
+2026-05-05 12:15:45,098 - INFO - Processing listing: https://www.olx.co.id/item/air-ev-300-km12-dp10-iid-944905997
+2026-05-05 12:15:46,933 - INFO - Variant found for 4542403504: Lite 300 Long Range Listrik-AT
+2026-05-05 12:15:46,941 - INFO - Seller type found for 4542403504: Diler
+2026-05-05 12:15:48,503 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 12:15:52,101 - INFO - Description extracted for 4542403504
+2026-05-05 12:15:53,130 - INFO - Data collected for 4542403504
+2026-05-05 12:15:53,182 - INFO - Detailed listing info saved to data/raw/scraped_detailed_listing_data.csv
+2026-05-05 12:15:53,287 - INFO - HTML content saved to data/raw/scraped_data.html
+2026-05-05 12:15:53,829 - INFO - [pid 39244] Worker Worker(salt=589718940, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=39244) done      ExtractData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv)
+2026-05-05 12:15:53,830 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 12:15:53,833 - INFO - Informed scheduler that task   ExtractData_data_raw_scraped_data_raw_scraped_wuling_air_ev_e4f1eb366d   has status   DONE
+2026-05-05 12:15:53,833 - DEBUG - Asking scheduler for work...
+2026-05-05 12:15:53,834 - DEBUG - Pending tasks: 3
+2026-05-05 12:15:53,834 - INFO - [pid 39244] Worker Worker(salt=589718940, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=39244) running   ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+2026-05-05 12:15:53,960 - INFO - Parsed data saved to data/parsed/parsed_data.csv
+2026-05-05 12:15:53,960 - INFO - [pid 39244] Worker Worker(salt=589718940, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=39244) done      ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+2026-05-05 12:15:53,960 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 12:15:53,960 - INFO - Informed scheduler that task   ParseData_data_raw_scraped_data_raw_scraped_wuling_air_ev_7b15c0f68e   has status   DONE
+2026-05-05 12:15:53,960 - DEBUG - Asking scheduler for work...
+2026-05-05 12:15:53,960 - DEBUG - Pending tasks: 2
+2026-05-05 12:15:53,960 - INFO - [pid 39244] Worker Worker(salt=589718940, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=39244) running   TransformData(detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv, html_path=data/raw/scraped_data.html, transform_data_path=data/transformed/transformed_data.csv)
+2026-05-05 12:15:54,039 - INFO - Transformed data saved to data/transformed/transformed_data.csv
+2026-05-05 12:15:54,040 - INFO - [pid 39244] Worker Worker(salt=589718940, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=39244) done      TransformData(detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv, html_path=data/raw/scraped_data.html, transform_data_path=data/transformed/transformed_data.csv)
+2026-05-05 12:15:54,040 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 12:15:54,040 - INFO - Informed scheduler that task   TransformData_data_raw_scraped_data_raw_scraped_data_parsed_pars_2fcbe9c413   has status   DONE
+2026-05-05 12:15:54,040 - DEBUG - Asking scheduler for work...
+2026-05-05 12:15:54,040 - DEBUG - Pending tasks: 1
+2026-05-05 12:15:54,040 - INFO - [pid 39244] Worker Worker(salt=589718940, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=39244) running   LoadData(html_path=data/raw/scraped_data.html, parsed_path=data/parsed/parsed_data.csv, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, transformed_data_path=data/transformed/transformed_data.csv, table_name=scrape_data, db_url=postgresql://olx_user:olx_pass@localhost:5432/scrape_olx, load_query_path=pipeline/query/upsert_final_schema.sql)
+2026-05-05 12:15:54,040 - INFO - using table name: scrape_data at postgresql://olx_user:olx_pass@localhost:5432/scrape_olx
+2026-05-05 12:15:54,371 - INFO - Data loaded into scrape_data successfully.
+2026-05-05 12:15:54,405 - INFO - Data loaded into final schema successfully.
+2026-05-05 12:15:54,406 - INFO - [pid 39244] Worker Worker(salt=589718940, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=39244) done      LoadData(html_path=data/raw/scraped_data.html, parsed_path=data/parsed/parsed_data.csv, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, transformed_data_path=data/transformed/transformed_data.csv, table_name=scrape_data, db_url=postgresql://olx_user:olx_pass@localhost:5432/scrape_olx, load_query_path=pipeline/query/upsert_final_schema.sql)
+2026-05-05 12:15:54,406 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 12:15:54,406 - INFO - Informed scheduler that task   LoadData_postgresql___olx_data_raw_scraped_data_raw_scraped_89101dd92d   has status   DONE
+2026-05-05 12:15:54,406 - DEBUG - Asking scheduler for work...
+2026-05-05 12:15:54,406 - DEBUG - Done
+2026-05-05 12:15:54,406 - DEBUG - There are no more tasks to run at this time
+2026-05-05 12:15:54,406 - INFO - Worker Worker(salt=589718940, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=39244) was stopped. Shutting down Keep-Alive thread
+2026-05-05 12:15:54,409 - INFO - 
+===== Luigi Execution Summary =====
+
+Scheduled 4 tasks of which:
+* 4 ran successfully:
+    - 1 ExtractData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv)
+    - 1 LoadData(...)
+    - 1 ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+    - 1 TransformData(...)
+
+This progress looks :) because there were no failed tasks or missing dependencies
+
+===== Luigi Execution Summary =====
+
+2026-05-05 13:42:23,081 - INFO - Successfully loaded page: https://www.olx.co.id/mobil-bekas_c198/q-wuling-air-ev
+2026-05-05 13:42:27,853 - INFO - Typing location: Indonesia
+2026-05-05 13:42:30,424 - INFO - Typed Indonesia as a filter
+2026-05-05 13:43:07,989 - INFO - Processing listing: https://www.olx.co.id/item/dijual-wuling-air-ev-long-range-at-2022-termurah-iid-945049259
+2026-05-05 13:43:09,697 - INFO - Variant found for 4498211872: Long Range Listrik-AT
+2026-05-05 13:43:09,710 - INFO - Seller type found for 4498211872: Individu
+2026-05-05 13:43:11,399 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 13:43:14,955 - INFO - Description extracted for 4498211872
+2026-05-05 13:43:16,002 - INFO - Data collected for 4498211872
+2026-05-05 13:43:18,407 - INFO - Processing listing: https://www.olx.co.id/item/wuling-air-ev-standard-range-2022-iid-944938106
+2026-05-05 13:43:20,112 - INFO - Variant found for 4498806704: Standard Range Listrik-AT
+2026-05-05 13:43:20,127 - INFO - Seller type found for 4498806704: --
+2026-05-05 13:43:21,692 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 13:43:25,325 - INFO - Description extracted for 4498806704
+2026-05-05 13:43:26,372 - INFO - Data collected for 4498806704
+2026-05-05 13:43:29,605 - INFO - Processing listing: https://www.olx.co.id/item/km25000wuling-air-ev-long-range-2024-nik-2023-istimewa-iid-944760827
+2026-05-05 13:43:31,599 - INFO - Variant found for 4494560544: Long Range Listrik-AT
+2026-05-05 13:43:31,629 - INFO - Seller type found for 4494560544: Diler
+2026-05-05 13:43:33,465 - INFO - Clicking 'Selengkapnya' button...
+2026-05-05 13:43:37,180 - INFO - Description extracted for 4494560544
+2026-05-05 13:43:38,219 - INFO - Data collected for 4494560544
+2026-05-05 13:43:38,302 - INFO - Detailed listing info saved to data/raw/scraped_detailed_listing_data.csv
+2026-05-05 13:43:38,515 - INFO - HTML content saved to data/raw/scraped_data.html
+2026-05-05 13:43:39,107 - INFO - [pid 51035] Worker Worker(salt=865485216, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=51035) done      ExtractData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv)
+2026-05-05 13:43:39,109 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 13:43:39,114 - INFO - Informed scheduler that task   ExtractData_data_raw_scraped_data_raw_scraped_wuling_air_ev_e4f1eb366d   has status   DONE
+2026-05-05 13:43:39,114 - DEBUG - Asking scheduler for work...
+2026-05-05 13:43:39,114 - DEBUG - Pending tasks: 3
+2026-05-05 13:43:39,114 - INFO - [pid 51035] Worker Worker(salt=865485216, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=51035) running   ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+2026-05-05 13:43:39,385 - INFO - Parsed data saved to data/parsed/parsed_data.csv
+2026-05-05 13:43:39,385 - INFO - [pid 51035] Worker Worker(salt=865485216, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=51035) done      ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+2026-05-05 13:43:39,386 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 13:43:39,386 - INFO - Informed scheduler that task   ParseData_data_raw_scraped_data_raw_scraped_wuling_air_ev_7b15c0f68e   has status   DONE
+2026-05-05 13:43:39,386 - DEBUG - Asking scheduler for work...
+2026-05-05 13:43:39,386 - DEBUG - Pending tasks: 2
+2026-05-05 13:43:39,386 - INFO - [pid 51035] Worker Worker(salt=865485216, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=51035) running   TransformData(detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv, html_path=data/raw/scraped_data.html, transform_data_path=data/transformed/transformed_data.csv)
+2026-05-05 13:43:39,421 - INFO - Transformed data saved to data/transformed/transformed_data.csv
+2026-05-05 13:43:39,421 - INFO - [pid 51035] Worker Worker(salt=865485216, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=51035) done      TransformData(detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv, html_path=data/raw/scraped_data.html, transform_data_path=data/transformed/transformed_data.csv)
+2026-05-05 13:43:39,421 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 13:43:39,422 - INFO - Informed scheduler that task   TransformData_data_raw_scraped_data_raw_scraped_data_parsed_pars_2fcbe9c413   has status   DONE
+2026-05-05 13:43:39,422 - DEBUG - Asking scheduler for work...
+2026-05-05 13:43:39,422 - DEBUG - Pending tasks: 1
+2026-05-05 13:43:39,422 - INFO - [pid 51035] Worker Worker(salt=865485216, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=51035) running   LoadData(html_path=data/raw/scraped_data.html, parsed_path=data/parsed/parsed_data.csv, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, transformed_data_path=data/transformed/transformed_data.csv, table_name=scrape_data, db_url=postgresql://olx_user:olx_pass@localhost:5432/scrape_olx, load_query_path=pipeline/query/upsert_final_schema.sql)
+2026-05-05 13:43:39,422 - INFO - using table name: scrape_data at postgresql://olx_user:olx_pass@localhost:5432/scrape_olx
+2026-05-05 13:43:39,948 - INFO - Data loaded into scrape_data successfully.
+2026-05-05 13:43:39,985 - INFO - Data loaded into final schema successfully.
+2026-05-05 13:43:39,986 - INFO - [pid 51035] Worker Worker(salt=865485216, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=51035) done      LoadData(html_path=data/raw/scraped_data.html, parsed_path=data/parsed/parsed_data.csv, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, transformed_data_path=data/transformed/transformed_data.csv, table_name=scrape_data, db_url=postgresql://olx_user:olx_pass@localhost:5432/scrape_olx, load_query_path=pipeline/query/upsert_final_schema.sql)
+2026-05-05 13:43:39,986 - DEBUG - 1 running tasks, waiting for next task to finish
+2026-05-05 13:43:39,987 - INFO - Informed scheduler that task   LoadData_postgresql___olx_data_raw_scraped_data_raw_scraped_89101dd92d   has status   DONE
+2026-05-05 13:43:39,987 - DEBUG - Asking scheduler for work...
+2026-05-05 13:43:39,987 - DEBUG - Done
+2026-05-05 13:43:39,987 - DEBUG - There are no more tasks to run at this time
+2026-05-05 13:43:39,988 - INFO - Worker Worker(salt=865485216, workers=1, host=dilafaradisas-MacBook.local, username=dilafaradisa, pid=51035) was stopped. Shutting down Keep-Alive thread
+2026-05-05 13:43:39,997 - INFO - 
+===== Luigi Execution Summary =====
+
+Scheduled 4 tasks of which:
+* 4 ran successfully:
+    - 1 ExtractData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv)
+    - 1 LoadData(...)
+    - 1 ParseData(keyword=wuling air ev, html_path=data/raw/scraped_data.html, detail_csv_path=data/raw/scraped_detailed_listing_data.csv, parsed_path=data/parsed/parsed_data.csv)
+    - 1 TransformData(...)
+
+This progress looks :) because there were no failed tasks or missing dependencies
+
+===== Luigi Execution Summary =====
+

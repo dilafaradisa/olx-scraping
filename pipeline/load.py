@@ -2,14 +2,16 @@ import luigi
 import os
 import pandas as pd
 import sqlalchemy
+import logging
 from datetime import datetime
 from dotenv import load_dotenv
 from pipeline.utils.db_connect import dwh_db_connection
 from pipeline.transform import TransformData
 from pipeline.utils.read_sql_file import read_sql_file
 
-
 load_dotenv()
+
+DIR_TEMP_LOG = os.getenv("DIR_TEMP_LOG")
 
 class LoadData(luigi.Task):
     html_path = luigi.Parameter(default=os.getenv('HTML_PATH'))
@@ -33,13 +35,16 @@ class LoadData(luigi.Task):
         return luigi.LocalTarget(f'data/inserted/load_complete_{timestamp}.txt')
     
     def run(self):
-        print(f'using table name: {self.table_name} at {self.db_url}')
+        logging.basicConfig(level = logging.INFO,
+                            filename=f'{DIR_TEMP_LOG}/logs.log',
+                            format='%(asctime)s - %(levelname)s - %(message)s')
+
+        logging.info(f'using table name: {self.table_name} at {self.db_url}')
 
         try:
             dwh_engine = dwh_db_connection()
         except Exception as e:
-            print("Error connecting to DWH DB")
-            print(e)
+            logging.error(f"Error connecting to DWH DB: {e}")
             return
         
         try:
@@ -54,7 +59,7 @@ class LoadData(luigi.Task):
                     index=False,
                     schema='stg'
                 )
-            print(f"Data loaded into {self.table_name} successfully.")
+            logging.info(f"Data loaded into {self.table_name} successfully.")
 
         except Exception as e:
             raise Exception(f"Error loading data into {self.table_name}: {e}")
@@ -65,7 +70,7 @@ class LoadData(luigi.Task):
                 connection.execute(sqlalchemy.text(load_query))
                 connection.commit()
 
-                print("Data loaded into final schema successfully.")
+                logging.info("Data loaded into final schema successfully.")
 
         except Exception as e:
             raise Exception(f"Error in loading data into final schema: {e}")

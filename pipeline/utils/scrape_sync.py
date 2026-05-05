@@ -2,17 +2,23 @@ import os
 import pandas as pd
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from dotenv import load_dotenv
+import logging
 
 load_dotenv()
 
 DOMAIN = "https://www.olx.co.id"
 KEYWORD = os.getenv("KEYWORD")
+DIR_TEMP_LOG = os.getenv("DIR_TEMP_LOG")
 # HTML_PATH = os.getenv("HTML_PATH")
 # DETAIL_CSV_PATH = os.getenv("DETAIL_CSV_PATH")
 
 def scrape(playwright, keyword, html_path, csv_path):
     try:
-        print("keyword value:", keyword)
+        logging.basicConfig(level = logging.INFO,
+                            filename=f'{DIR_TEMP_LOG}/logs.log',
+                            format='%(asctime)s - %(levelname)s - %(message)s')
+                    
+        logging.info("keyword value:", keyword)
         keyword_formatted = keyword.replace(' ', '-')
         url = f"{DOMAIN}/mobil-bekas_c198/q-{keyword_formatted}"
         os.makedirs(os.path.dirname(html_path), exist_ok=True)
@@ -28,7 +34,7 @@ def scrape(playwright, keyword, html_path, csv_path):
 
         try:
             page.goto(url, timeout=60000)
-            print(f"Successfully loaded page: {url}")
+            logging.info(f"Successfully loaded page: {url}")
 
             # filter location
             try:
@@ -43,8 +49,9 @@ def scrape(playwright, keyword, html_path, csv_path):
 
                 page.click(location_input)
                 page.fill(location_input, "")
-                print(f"Typing location: Indonesia")
+                logging.info(f"Typing location: Indonesia")
                 page.type(location_input, "Indonesia", delay=200)
+                logging.info(f'Typed Indonesia as a filter')
 
 
                 item = page.wait_for_selector(location_item, timeout=7000)
@@ -57,8 +64,8 @@ def scrape(playwright, keyword, html_path, csv_path):
                 # page.click(location_item)
                 # # page.keyboard.press("Enter")
                 # page.wait_for_timeout(2000)
-            except Exception:
-                print("Location selection failed, proceeding without setting location filter.")
+            except Exception as e:
+                logging.error(f"Location selection failed, proceeding without setting location filter.")
 
             # scroll until no more load more button
             load_more_button = 'button[data-aut-id="btnLoadMore"]'
@@ -79,7 +86,7 @@ def scrape(playwright, keyword, html_path, csv_path):
             # get listing urls
             listing = page.locator("li[data-aut-id='itemBox']")
             total_cards = listing.count()
-            print("Cards found:", total_cards)
+            logging.info("Cards found:", total_cards)
 
             listing_urls = []
             for i in range(total_cards):
@@ -90,11 +97,11 @@ def scrape(playwright, keyword, html_path, csv_path):
             detailed_listing_info = []
 
             # open each listing page
-            for target_url in listing_urls:
+            for target_url in listing_urls[:3]:
                 try:
                     p = context.new_page()
                     p.goto(target_url, timeout=45000)
-                    print(f"Processing listing: {target_url}")
+                    logging.info(f"Processing listing: {target_url}")
 
                     # scroll down
                     p.evaluate("window.scrollBy(0, 600)")
@@ -106,9 +113,9 @@ def scrape(playwright, keyword, html_path, csv_path):
                         container = p.locator("[data-aut-id='carDetailInfo']")
                         if container.count() > 0:
                             variant = container.locator("[data-aut-id='itemTitle'] >> xpath=following-sibling::div[1]").inner_text()
-                            print(f"Variant found for {target_url}: {variant}")
+                            logging.info(f"Variant found for {id(target_url)}: {variant}")
                     except Exception as e:
-                        print(f"Variant not found for {target_url}: {e}, setting as 'not found'")
+                        logging.error(f"Variant not found for {id(target_url)}: {e}, setting as 'not found'")
 
                     # get seller type
                     seller_type = "not found"
@@ -116,9 +123,9 @@ def scrape(playwright, keyword, html_path, csv_path):
                         overview = p.locator("[data-aut-id='overviewDetails']")
                         if overview.count() > 0:
                             seller_type = overview.locator('div:text-is("penjual") + div').inner_text()
-                            print(f"Seller type found for {target_url}: {seller_type}")
+                            logging.info(f"Seller type found for {id(target_url)}: {seller_type}")
                     except Exception as e:
-                        print(f"Seller type not found for {target_url}: {e}, setting as 'not found'")
+                        logging.info(f"Seller type not found for {id(target_url)}: {e}, setting as 'not found'")
 
                     # get description
                     description = "not found"
@@ -132,7 +139,7 @@ def scrape(playwright, keyword, html_path, csv_path):
                             see_more_btn = desc_container.locator("[data-aut-id='seeMoreButtonDescription']")
 
                             if see_more_btn.is_visible():
-                                print("Clicking 'Selengkapnya' button...")
+                                logging.info("Clicking 'Selengkapnya' button...")
 
                                 see_more_btn.dispatch_event("click")
                                 p.wait_for_timeout(3000)
@@ -141,7 +148,7 @@ def scrape(playwright, keyword, html_path, csv_path):
                                 p.wait_for_selector(modal_selector, state="visible", timeout=5000)
 
                                 description = p.locator(modal_selector).inner_text()
-                                print(f"Description extracted for {target_url}: {description[:10]}...")
+                                logging.info(f"Description extracted for {id(target_url)}")
 
                                 p.keyboard.press("Escape")
                                 p.wait_for_timeout(500)
@@ -152,7 +159,7 @@ def scrape(playwright, keyword, html_path, csv_path):
                                     description = inline_desc.inner_text()
 
                     except Exception as e:
-                        print(f"Description error for {target_url}: {e}")
+                        logging.error(f"Description error for {target_url}: {e}")
 
                     data = {
                         "url": target_url,
@@ -160,33 +167,33 @@ def scrape(playwright, keyword, html_path, csv_path):
                         "seller_type": seller_type,
                         "description": description
                     }
-                    print(f"Data collected for {id(target_url)}{target_url}")
+                    logging.info(f"Data collected for {id(target_url)}")
                 
                     detailed_listing_info.append(data)
                     p.close()
 
                 except Exception as e:
-                    print(f"Error while processing {target_url}: {e}")
+                    logging.error(f"Error while processing {target_url}: {e}")
 
             # save detailed listing into csv
             df = pd.DataFrame(detailed_listing_info)
             df.to_csv(csv_path, index=False)
-            print(f"Detailed listing info saved to {csv_path}")
+            logging.info(f"Detailed listing info saved to {csv_path}")
 
             # save HTML of the main search page
             html_content = page.content()
             with open(html_path, 'w', encoding='utf-8') as f:
                 f.write(html_content)
-            print(f"HTML content saved to {html_path}")
+            logging.info(f"HTML content saved to {html_path}")
 
         except Exception as e:
-            print(f"Error during scraping: {e}")
+            logging.error(f"Error during scraping: {e}")
             raise
         finally:
             browser.close()
 
     except Exception as e:
-        print(f"Error in scrape function: {e}")
+        logging.error(f"Error in scrape function: {e}")
         raise
 
 # keyword = "Wuling Air EV"

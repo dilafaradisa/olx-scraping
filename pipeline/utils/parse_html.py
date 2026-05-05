@@ -1,11 +1,21 @@
 import pandas as pd
 from bs4 import BeautifulSoup
 import re
+import logging
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DIR_TEMP_LOG = os.getenv("DIR_TEMP_LOG")
 
 def parse_html(html_data, parsed_path):
     '''this function parses html content to csv file'''
     try:
+        logging.basicConfig(level = logging.INFO,
+                            filename=f'{DIR_TEMP_LOG}/logs.log',
+                            format='%(asctime)s - %(levelname)s - %(message)s')
+        
         with open(html_data, 'r', encoding='utf-8') as file:
             soup = BeautifulSoup(file, 'html.parser')
 
@@ -51,7 +61,7 @@ def parse_html(html_data, parsed_path):
         df = pd.DataFrame(data)
         os.makedirs(os.path.dirname(parsed_path), exist_ok=True)
         df.to_csv(parsed_path, index=False)
-        print(f"Parsed data saved to {parsed_path}")
+        logging.info(f"Parsed data saved to {parsed_path}")
 
     except Exception as e:
-        print(f"An error occurred while parsing HTML: {e}")
+        logging.error(f"An error occurred while parsing HTML: {e}")
