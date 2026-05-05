@@ -97,7 +97,7 @@ def scrape(playwright, keyword, html_path, csv_path):
             detailed_listing_info = []
 
             # open each listing page
-            for target_url in listing_urls[:3]:
+            for target_url in listing_urls:
                 try:
                     p = context.new_page()
                     p.goto(target_url, timeout=45000)
