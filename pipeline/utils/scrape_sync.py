@@ -113,9 +113,9 @@ def scrape(playwright, keyword, html_path, csv_path):
                         container = p.locator("[data-aut-id='carDetailInfo']")
                         if container.count() > 0:
                             variant = container.locator("[data-aut-id='itemTitle'] >> xpath=following-sibling::div[1]").inner_text()
-                            logging.info(f"Variant found for {id(target_url)}: {variant}")
+                            logging.info(f"Variant found for {target_url}: {variant}")
                     except Exception as e:
-                        logging.error(f"Variant not found for {id(target_url)}: {e}, setting as 'not found'")
+                        logging.error(f"Variant not found for {target_url}: {e}, setting as 'not found'")
 
                     # get seller type
                     seller_type = "not found"
@@ -123,9 +123,9 @@ def scrape(playwright, keyword, html_path, csv_path):
                         overview = p.locator("[data-aut-id='overviewDetails']")
                         if overview.count() > 0:
                             seller_type = overview.locator('div:text-is("penjual") + div').inner_text()
-                            logging.info(f"Seller type found for {id(target_url)}: {seller_type}")
+                            logging.info(f"Seller type found for {target_url}: {seller_type}")
                     except Exception as e:
-                        logging.info(f"Seller type not found for {id(target_url)}: {e}, setting as 'not found'")
+                        logging.info(f"Seller type not found for {target_url}: {e}, setting as 'not found'")
 
                     # get description
                     description = "not found"
@@ -148,7 +148,7 @@ def scrape(playwright, keyword, html_path, csv_path):
                                 p.wait_for_selector(modal_selector, state="visible", timeout=5000)
 
                                 description = p.locator(modal_selector).inner_text()
-                                logging.info(f"Description extracted for {id(target_url)}")
+                                logging.info(f"Description extracted for {target_url}")
 
                                 p.keyboard.press("Escape")
                                 p.wait_for_timeout(500)
@@ -167,7 +167,7 @@ def scrape(playwright, keyword, html_path, csv_path):
                         "seller_type": seller_type,
                         "description": description
                     }
-                    logging.info(f"Data collected for {id(target_url)}")
+                    logging.info(f"Data collected for {target_url}")
                 
                     detailed_listing_info.append(data)
                     p.close()
